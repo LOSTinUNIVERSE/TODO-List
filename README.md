@@ -1,2 +1,3 @@
 # template
-just a template repo
+
+this is todo list projects, created using HTML, CSS, JS.
