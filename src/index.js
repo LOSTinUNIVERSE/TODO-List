@@ -1,36 +1,20 @@
-const storage = (() => {
-    const ParentArray = [['default array']];
+import './style.css'
+import fundament from './domElements';
+import { storage, ProjectCreator, showProjects } from './basic';
 
-    return { ParentArray }
+fundament()
+
+function createDivs() {
 
 }
-)()
+function caller2() {
+    const inputName = document.getElementById('projectName')
+    ProjectCreator.arrayCreator(inputName.value)
+    showProjects()
 
-const ProjectCreator = (() => {
-    const arrayCreator = (name, priority) => {
-        const id = storage.ParentArray.length
-        const specificArray = [[name, priority, id]]
-        storage.ParentArray.push(specificArray)
-    }
-    return { arrayCreator }
-})()
-
-
-
-const taskToProject = (() => {
-    const toArray = function (array, task) {
-        storage.ParentArray[array].push(task)
-    }
-    return { toArray }
-})()
-
-const FactoryDO = (title, description, dueDate, priority) => {
-    const addToArray = function (array) {
-        taskToProject.toArray(array, this)
-    }
-    return { addToArray, title, description, dueDate, priority }
 }
 
-const jeff = FactoryDO('jeff', 1, 1, 1)
-jeff.addToArray()
-console.log(storage.ParentArray);
+const addingEventListeners = (() => {
+    const btnCreateObject = document.getElementById('btnCreateObject')
+    btnCreateObject.addEventListener('click', caller2)
+})()
