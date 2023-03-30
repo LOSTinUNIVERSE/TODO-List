@@ -1,12 +1,14 @@
 
-const taskToProject = (() => {
+export const taskToProject = (() => {
+    const positionOfArray = ''
     const toArray = function (array, task) {
         storage.ParentArray[array].push(task)
     }
-    return { toArray }
+
+    return { toArray, positionOfArray }
 })()
 
-const FactoryDO = (title, description, dueDate, priority) => {
+export const FactoryDO = (title, description, dueDate, priority) => {
     const addToArray = function (array) {
         taskToProject.toArray(array, this)
     }
