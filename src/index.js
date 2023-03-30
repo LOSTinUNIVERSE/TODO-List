@@ -5,6 +5,7 @@ const storage = (() => {
 
 }
 )()
+
 const ProjectCreator = (() => {
     const arrayCreator = (name, priority) => {
         const id = storage.ParentArray.length
@@ -14,10 +15,6 @@ const ProjectCreator = (() => {
     return { arrayCreator }
 })()
 
-// ProjectCreator.arrayCreator('1st array', 3);
-// ProjectCreator.arrayCreator('2 array', 5);
-// ProjectCreator.arrayCreator('6 array', 6);
-// storage.ParentArray.forEach(item => console.log(item))
 
 
 const taskToProject = (() => {
@@ -28,20 +25,12 @@ const taskToProject = (() => {
 })()
 
 const FactoryDO = (title, description, dueDate, priority) => {
-    const addToArray = (array) => {
-        console.log(this);
+    const addToArray = function (array) {
         taskToProject.toArray(array, this)
     }
     return { addToArray, title, description, dueDate, priority }
 }
-const test = []
 
-const jeff = FactoryDO('jeff', test[1], test[2], test[3],)
+const jeff = FactoryDO('jeff', 1, 1, 1)
 jeff.addToArray()
-console.log(this);
-console.log(storage.ParentArray[0]);
-
-// const peff = FactoryDO('peff', test[1], test[2], test[3],)
-// peff.addToArray()
-// console.log(pusher.array[1]);
-// console.log(pusher.array);
+console.log(storage.ParentArray);
