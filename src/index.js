@@ -1,12 +1,10 @@
+/* eslint-disable prefer-destructuring */
 import './style.css'
 import fundament from './domElements';
-import { storage, ProjectCreator, showProjects } from './basic';
+import { ProjectCreator, showProjects } from './projects';
 
 fundament()
 
-function createDivs() {
-
-}
 function caller2() {
     const inputName = document.getElementById('projectName')
     ProjectCreator.arrayCreator(inputName.value)

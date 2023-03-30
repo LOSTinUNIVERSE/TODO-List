@@ -23,6 +23,20 @@
   align-content: start;
   gap: 20px;
 }
+#displayOfProjects {
+  background-color: lightgreen;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 30%;
+  height: 30%;
+  justify-self: center;
+  align-self: center;
+  position: absolute;
+  gap: 12px;
+}
+.projects {
+  background-color: lightslategrey;
+}
 #footer {
   background-color: coral;
   grid-area: -2/2/-1/-1;
