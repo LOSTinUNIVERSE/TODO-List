@@ -11,9 +11,15 @@
     <div id="content">
       <div id="sidebar">
         <button id="btnAddTask">ADD TASK</button>
+        <div id="displayOfProjects"></div>
+      </div>
+      <header id="header"></header>
+      <main id="main">
         <div id="projectCreateForm">
-          <input type="text" id="projectName" placeholder="project's name" />
-          <button id="btnNameProject">Create Object</button>
+          <div id="container1">
+            <input type="text" id="projectName" placeholder="project's name" />
+            <button id="btnNameProject">Create Object</button>
+          </div>
           <form action="" id="form">
             <input type="text" id="title" placeholder="Your title" />
             <input
@@ -22,13 +28,8 @@
               placeholder="Your description"
             />
             <button id="submit">+</button>
-            <button id="cancel">cancel</button>
           </form>
         </div>
-      </div>
-      <header id="header"></header>
-      <main id="main">
-        <div id="displayOfProjects"></div>
       </main>
       <footer id="footer"></footer>
     </div>
