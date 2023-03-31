@@ -1,18 +1,24 @@
-import { taskToProject } from './basic';
+import { taskToProject, storage } from './basic';
 
-export const storage = (() => {
-    const ParentArray = [[['default array']]];
 
-    return { ParentArray }
-
-}
-)()
-// * when divs are clicked they can set up their id as an argument for the 2 
-// * argument while creating objects
 export const clickableProjects = function () {
     taskToProject.positionOfArray = this.id
     console.log(taskToProject.positionOfArray);
 }
+const btnAddTask = (() => {
+    const projectCreateForm = document.getElementById('projectCreateForm')
+    const addTaskBtn = document.getElementById('btnAddTask')
+    const cancel = document.getElementById('cancel')
+    let switcher = true
+    function showInput() {
+        if (switcher == true) {
+            projectCreateForm.style.display = 'none'
+            switcher = false
+        }
+        else { projectCreateForm.style.display = 'grid'; switcher = true }
+    }
+    addTaskBtn.addEventListener('click', showInput)
+})()
 
 export const showProjects = () => {
     let number = 0
@@ -26,10 +32,9 @@ export const showProjects = () => {
         newDiv.id = number
         display.appendChild(newDiv)
         newDiv.classList.add('projects')
-        nameDiv.textContent = element[0][0]
+        nameDiv.textContent = element[0]
         number++
     })
-    console.log(storage.ParentArray);
 }
 showProjects()
 export const ProjectCreator = (() => {
@@ -40,4 +45,3 @@ export const ProjectCreator = (() => {
     }
     return { arrayCreator }
 })()
-

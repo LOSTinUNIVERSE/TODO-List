@@ -12,6 +12,6 @@ function caller2() {
 }
 
 const addingEventListeners = (() => {
-    const btnCreateObject = document.getElementById('btnCreateObject')
-    btnCreateObject.addEventListener('click', caller2)
+    const btnNameProject = document.getElementById('btnNameProject')
+    btnNameProject.addEventListener('click', caller2)
 })()

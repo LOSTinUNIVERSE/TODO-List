@@ -1,14 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 #content {
   width: 100vw;
   height: 100vh;
   background-color: lightblue;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 2fr 5fr;
   grid-template-rows: 1fr 5fr 1fr;
 }
 #sidebar {
   background-color: lightcoral;
   grid-area: 1/1/-1/2;
+  display: grid;
+  align-items: start;
+  justify-content: center;
 }
 #header {
   background-color: lightpink;
@@ -46,8 +53,28 @@ input {
   height: 100%;
   border: 2px solid black;
   background-color: white;
+  display: grid;
 }
-#submit {
+button {
+  width: 1fr;
+  height: 1fr;
+  display: grid;
+}
+form > input {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: 30px;
+}
+form {
+  display: grid;
+  gap: 20px;
+}
+
+#submit {
+  width: 50%;
+  height: 20px;
+}
+#btnAddTask {
+  display: grid;
+  height: 30px;
 }
