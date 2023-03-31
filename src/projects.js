@@ -1,14 +1,32 @@
 import { taskToProject, storage } from './basic';
 
+const taskContainer = document.createElement('div')
+taskContainer.id = 'taskContainer'
+const main = document.getElementById('main')
+main.appendChild(taskContainer)
 
 export const clickableProjects = function () {
+    let number = 0
     taskToProject.positionOfArray = this.id
-    console.log(taskToProject.positionOfArray);
+    taskContainer.replaceChildren()
+    storage.ParentArray[this.id].forEach(item => {
+        const task = document.createElement('div')
+        const nameDiv = document.createElement('h3')
+        nameDiv.textContent = item.title
+        task.appendChild(nameDiv)
+        console.log(item);
+        console.log(nameDiv);
+        // newDiv.addEventListener('click', clickableProjects)
+        task.id = number
+        taskContainer.appendChild(task)
+        task.classList.add('task')
+        number++
+    })
+
 }
 const btnAddTask = (() => {
     const projectCreateForm = document.getElementById('projectCreateForm')
     const addTaskBtn = document.getElementById('btnAddTask')
-    const cancel = document.getElementById('cancel')
     let switcher = true
     function showInput() {
         if (switcher == true) {

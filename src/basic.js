@@ -29,9 +29,15 @@ const form = () => {
     const descriptionInput = document.getElementById('description')
 
     const addTask = function (event) {
+        if (taskToProject.positionOfArray == '') {
+            console.log('wrong');
+            event.preventDefault()
+            return
+        }
         const newTask = FactoryDO(titleInput.value, descriptionInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
         event.preventDefault()
+
     }
     submitBtn.addEventListener('click', addTask, false)
     return { titleInput, descriptionInput }
