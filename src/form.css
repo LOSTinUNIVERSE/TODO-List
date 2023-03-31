@@ -1,0 +1,45 @@
+input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  background-color: white;
+  display: grid;
+}
+button {
+  width: 1fr;
+  height: 1fr;
+  display: grid;
+  justify-self: center;
+}
+form > input {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+form {
+  display: grid;
+  gap: 20px;
+  /* grid-template-rows:; */
+  align-content: center;
+}
+
+#submit {
+  width: 50%;
+  height: 20px;
+}
+#projectCreateForm {
+  background-color: rgb(143, 117, 117);
+  height: 80%;
+  gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+#projectName {
+  width: 100%;
+  height: 40px;
+}
+#container1 {
+  display: grid;
+  background-color: antiquewhite;
+}

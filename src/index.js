@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring */
 import './style.css'
+import './sidebarStyle.css'
 import fundament from './domElements';
 import { ProjectCreator, showProjects, clickableProjects } from './projects';
 

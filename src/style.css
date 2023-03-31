@@ -15,7 +15,8 @@
   grid-area: 1/1/-1/2;
   display: grid;
   align-items: start;
-  justify-content: center;
+  justify-items: center;
+  grid-template-rows: 1fr 3fr;
 }
 #header {
   background-color: lightpink;
@@ -40,6 +41,7 @@
   align-self: center;
   position: absolute;
   gap: 12px;
+  overflow: scroll;
 }
 .projects {
   background-color: lightslategrey;
@@ -47,34 +49,4 @@
 #footer {
   background-color: coral;
   grid-area: -2/2/-1/-1;
-}
-input {
-  width: 100%;
-  height: 100%;
-  border: 2px solid black;
-  background-color: white;
-  display: grid;
-}
-button {
-  width: 1fr;
-  height: 1fr;
-  display: grid;
-}
-form > input {
-  display: block;
-  width: 100%;
-  height: 30px;
-}
-form {
-  display: grid;
-  gap: 20px;
-}
-
-#submit {
-  width: 50%;
-  height: 20px;
-}
-#btnAddTask {
-  display: grid;
-  height: 30px;
 }
