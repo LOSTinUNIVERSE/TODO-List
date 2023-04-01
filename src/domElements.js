@@ -15,6 +15,20 @@ const btnRemoveEDitMenu = () => {
     cancel.addEventListener('click', removeEditMenu)
 }
 
+function removeDiv() {
+    const test = document.querySelector(`[data-num='${this.dataset.num}']`)
+    test.remove()
+    console.log(test);
+    removeEditMenu()
+}
+const btnDeleteDiv = () => {
+    const editMenu = document.getElementById('editMenu')
+    const removeBtn = document.createElement('button')
+    removeBtn.textContent = 'remove'
+    removeBtn.dataset.num = editMenu.dataset.num
+    editMenu.appendChild(removeBtn)
+    removeBtn.addEventListener('click', removeDiv)
+}
 
 
 export const clickableTask = function () {
@@ -25,6 +39,8 @@ export const clickableTask = function () {
     main.appendChild(editMenu)
     switcher = 0
     const task = storage.ParentArray[this.dataset.array][this.id];
+    // !
+    editMenu.dataset.num = this.dataset.num
 
     const editMenuInfo = () => {
         const editMenu = document.getElementById('editMenu')
@@ -38,6 +54,7 @@ export const clickableTask = function () {
         editMenu.appendChild(dueDate)
         editMenu.appendChild(priority)
 
+
         titleOfTask.textContent = task.title
         description.textContent = task.description
         dueDate.textContent = task.dueDate
@@ -45,6 +62,7 @@ export const clickableTask = function () {
     }
     editMenuInfo()
     btnRemoveEDitMenu()
+    btnDeleteDiv()
     return { switcher }
 }
 

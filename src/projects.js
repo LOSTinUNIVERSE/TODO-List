@@ -17,12 +17,12 @@ export const clickableProjects = function () {
         task.appendChild(nameDiv)
         task.id = number
         task.dataset.array = this.id
+        task.dataset.num = number
         taskContainer.appendChild(task)
         task.classList.add('task')
         task.addEventListener('click', clickableTask)
         number++
     })
-
 }
 const btnAddTask = (() => {
     const projectCreateForm = document.getElementById('projectCreateForm')
