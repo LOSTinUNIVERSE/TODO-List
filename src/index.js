@@ -1,10 +1,8 @@
 /* eslint-disable prefer-destructuring */
 import './style.css'
 import './form.css'
-import fundament from './domElements';
 import { ProjectCreator, showProjects, clickableProjects } from './projects';
 
-fundament()
 
 function caller2() {
     const inputName = document.getElementById('projectName')

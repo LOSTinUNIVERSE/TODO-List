@@ -1,4 +1,5 @@
 import { taskToProject, storage } from './basic';
+import { clickableTask } from './domElements';
 
 const taskContainer = document.createElement('div')
 taskContainer.id = 'taskContainer'
@@ -14,12 +15,11 @@ export const clickableProjects = function () {
         const nameDiv = document.createElement('h3')
         nameDiv.textContent = item.title
         task.appendChild(nameDiv)
-        console.log(item);
-        console.log(nameDiv);
-        // newDiv.addEventListener('click', clickableProjects)
         task.id = number
+        task.dataset.array = this.id
         taskContainer.appendChild(task)
         task.classList.add('task')
+        task.addEventListener('click', clickableTask)
         number++
     })
 

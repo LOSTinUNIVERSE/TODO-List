@@ -9,7 +9,6 @@ export const storage = (() => {
 export const taskToProject = (() => {
     const positionOfArray = ''
     const toArray = function (array, task) {
-        console.log(storage.ParentArray);
         storage.ParentArray[array].push(task)
     }
 
@@ -36,6 +35,7 @@ const form = () => {
         }
         const newTask = FactoryDO(titleInput.value, descriptionInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
+        console.log(newTask);
         event.preventDefault()
 
     }
