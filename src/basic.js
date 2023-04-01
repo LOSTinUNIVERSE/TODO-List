@@ -15,17 +15,19 @@ export const taskToProject = (() => {
     return { toArray, positionOfArray }
 })()
 
-export const FactoryDO = (title, description,) => {
+export const FactoryDO = (title, description, dueDate, priority) => {
     const addToArray = function (array) {
         taskToProject.toArray(array, this)
     }
-    return { addToArray, title, description, }
+    return { addToArray, title, description, dueDate, priority }
 }
 
 const form = () => {
     const submitBtn = document.getElementById('submit')
     const titleInput = document.getElementById('title')
     const descriptionInput = document.getElementById('description')
+    const dateInput = document.getElementById('dateInput')
+    const priorityInput = document.getElementById('priorityInput')
 
     const addTask = function (event) {
         if (taskToProject.positionOfArray == '') {
@@ -33,7 +35,7 @@ const form = () => {
             event.preventDefault()
             return
         }
-        const newTask = FactoryDO(titleInput.value, descriptionInput.value)
+        const newTask = FactoryDO(titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
         console.log(newTask);
         event.preventDefault()

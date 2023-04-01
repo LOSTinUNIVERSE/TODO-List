@@ -18,18 +18,20 @@ form {
 }
 #projectCreateForm {
   background-color: rgb(143, 117, 117);
-  height: 50%;
+  height: 80%;
   gap: 20px;
-  width: 30%;
+  width: 50%;
   display: grid;
   justify-self: center;
   align-self: center;
   position: absolute;
   grid-template-rows: 2fr 3fr;
+  border-radius: 30px;
 }
 #projectCreateForm input {
-  height: 100%;
+  height: 30px;
   width: 100%;
+  border-radius: 30px;
 }
 
 #container1 {
