@@ -18,14 +18,20 @@ const btnRemoveEDitMenu = () => {
 function removeDiv() {
     const test = document.querySelector(`[data-num='${this.dataset.num}']`)
     test.remove()
-    console.log(test);
+    const neededArray = storage.ParentArray[this.dataset.array]
+    const filteredArray = neededArray.filter((item) => item.id !== this.dataset.num)
+    console.log(this, 'this');
+    console.log(neededArray);
+    console.log(filteredArray);
     removeEditMenu()
 }
 const btnDeleteDiv = () => {
     const editMenu = document.getElementById('editMenu')
     const removeBtn = document.createElement('button')
     removeBtn.textContent = 'remove'
+    // !finished here, it does not remove things properly 
     removeBtn.dataset.num = editMenu.dataset.num
+    removeBtn.dataset.array = editMenu.dataset.array
     editMenu.appendChild(removeBtn)
     removeBtn.addEventListener('click', removeDiv)
 }
@@ -41,6 +47,7 @@ export const clickableTask = function () {
     const task = storage.ParentArray[this.dataset.array][this.id];
     // !
     editMenu.dataset.num = this.dataset.num
+    editMenu.dataset.array = this.dataset.array
 
     const editMenuInfo = () => {
         const editMenu = document.getElementById('editMenu')

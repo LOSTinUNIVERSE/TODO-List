@@ -1,6 +1,6 @@
 
 export const storage = (() => {
-    const ParentArray = [['default array']];
+    const ParentArray = [[]];
 
     return { ParentArray }
 
@@ -15,33 +15,37 @@ export const taskToProject = (() => {
     return { toArray, positionOfArray }
 })()
 
-export const FactoryDO = (title, description, dueDate, priority) => {
+export const FactoryDO = (id, title, description, dueDate, priority) => {
     const addToArray = function (array) {
         taskToProject.toArray(array, this)
     }
-    return { addToArray, title, description, dueDate, priority }
+    return { addToArray, id, title, description, dueDate, priority }
 }
-
-const form = () => {
+export const form = (() => {
     const submitBtn = document.getElementById('submit')
     const titleInput = document.getElementById('title')
     const descriptionInput = document.getElementById('description')
     const dateInput = document.getElementById('dateInput')
     const priorityInput = document.getElementById('priorityInput')
-
+    let number = 0
+    function refreshNumber() {
+        number = 0
+    }
     const addTask = function (event) {
         if (taskToProject.positionOfArray == '') {
             console.log('wrong');
             event.preventDefault()
             return
         }
-        const newTask = FactoryDO(titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
+        const newTask = FactoryDO(number, titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
         console.log(newTask);
         event.preventDefault()
+        number++
 
     }
     submitBtn.addEventListener('click', addTask, false)
-    return { titleInput, descriptionInput }
-}
-form()
+    return { titleInput, descriptionInput, refreshNumber }
+})()
+
+

@@ -1,4 +1,4 @@
-import { taskToProject, storage } from './basic';
+import { taskToProject, storage, form } from './basic';
 import { clickableTask } from './domElements';
 
 const taskContainer = document.createElement('div')
@@ -10,6 +10,8 @@ export const clickableProjects = function () {
     let number = 0
     taskToProject.positionOfArray = this.id
     taskContainer.replaceChildren()
+    console.log(storage.ParentArray);
+    console.log(storage.ParentArray[this.id]);
     storage.ParentArray[this.id].forEach(item => {
         const task = document.createElement('div')
         const nameDiv = document.createElement('h3')
@@ -23,6 +25,11 @@ export const clickableProjects = function () {
         task.addEventListener('click', clickableTask)
         number++
     })
+    // below code is to avoid refreshing the number 
+    let isClicked = false
+    if (isClicked == this.id) { return }
+    isClicked = this.id
+    form.refreshNumber()
 }
 const btnAddTask = (() => {
     const projectCreateForm = document.getElementById('projectCreateForm')
@@ -43,6 +50,7 @@ export const showProjects = () => {
     const display = document.getElementById('displayOfProjects')
     display.replaceChildren()
     storage.ParentArray.forEach(element => {
+
         const newDiv = document.createElement('div')
         const nameDiv = document.createElement('h3')
         newDiv.appendChild(nameDiv)
@@ -50,7 +58,7 @@ export const showProjects = () => {
         newDiv.id = number
         display.appendChild(newDiv)
         newDiv.classList.add('projects')
-        nameDiv.textContent = element[0]
+
         number++
     })
 }
@@ -58,7 +66,7 @@ showProjects()
 export const ProjectCreator = (() => {
     const arrayCreator = (name) => {
         const id = storage.ParentArray.length
-        const specificArray = [[name, id]]
+        const specificArray = []
         storage.ParentArray.push(specificArray)
     }
     return { arrayCreator }
