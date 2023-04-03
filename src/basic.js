@@ -1,8 +1,9 @@
 
 export const storage = (() => {
     const ParentArray = [[]];
+    const arrayNames = []
 
-    return { ParentArray }
+    return { ParentArray, arrayNames }
 
 }
 )()
@@ -39,7 +40,7 @@ export const form = (() => {
         }
         const newTask = FactoryDO(number, titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
-        console.log(newTask);
+        // console.log(newTask);
         event.preventDefault()
         number++
 
