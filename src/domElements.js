@@ -20,8 +20,6 @@ function removeDiv() {
     test.remove()
 
     let neededArray = storage.ParentArray[this.dataset.array]
-    console.log('needed array before', neededArray);
-    console.log('dataset number', this.dataset.num,);
     neededArray = neededArray.filter((item) => item.id != this.dataset.num)
     storage.ParentArray[this.dataset.array] = neededArray
     console.log('needed array after', neededArray);
@@ -31,7 +29,6 @@ const btnDeleteDiv = () => {
     const editMenu = document.getElementById('editMenu')
     const removeBtn = document.createElement('button')
     removeBtn.textContent = 'remove'
-    // !finished here, it does not remove things properly 
     removeBtn.dataset.num = editMenu.dataset.num
     removeBtn.dataset.array = editMenu.dataset.array
     editMenu.appendChild(removeBtn)
@@ -46,12 +43,8 @@ export const clickableTask = function () {
     editMenu.id = 'editMenu'
     main.appendChild(editMenu)
     switcher = 0
-    console.log(this, 'this');
     let task = storage.ParentArray[this.dataset.array].filter(item => item.id == this.dataset.num);
     task = task[0]
-    // ! here we made small changes to the task^
-    console.log(task, ' our task');
-    // !
     editMenu.dataset.num = this.dataset.num
     editMenu.dataset.array = this.dataset.array
 
@@ -67,19 +60,14 @@ export const clickableTask = function () {
         editMenu.appendChild(dueDate)
         editMenu.appendChild(priority)
 
-        // console.log(task);
-        // console.log(task.title);
         titleOfTask.textContent = task.title
         description.textContent = task.description
         dueDate.textContent = task.dueDate
         priority.textContent = task.priority
-        // console.log(titleOfTask.textContent);
-        // console.log(description.textContent);
-        // console.log(dueDate.textContent);
     }
     editMenuInfo()
     btnRemoveEDitMenu()
     btnDeleteDiv()
-    return { switcher }
+    // return { switcher }
 }
 

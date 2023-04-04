@@ -1,38 +1,30 @@
-import { taskToProject, storage, form } from './basic';
+import { taskToProject, storage } from './basic';
 import { clickableTask } from './domElements';
 
 const taskContainer = document.createElement('div')
 taskContainer.id = 'taskContainer'
 const main = document.getElementById('main')
 main.appendChild(taskContainer)
-let numberForDatasetNumber = 0
-function refreshNumberForDatasetNumber() {
-    numberForDatasetNumber = 0
-}
+
+
 export const clickableProjects = function () {
     let number = 0
-    taskToProject.positionOfArray = this.id
+    taskToProject.positionOfArray = this.dataset.array
     taskContainer.replaceChildren()
-    storage.ParentArray[this.id].forEach(item => {
+    storage.ParentArray[this.dataset.array].forEach(item => {
         const task = document.createElement('div')
         const nameDiv = document.createElement('h3')
         nameDiv.textContent = item.title
         task.appendChild(nameDiv)
         task.id = number
-        task.dataset.array = this.id
-        task.dataset.num = numberForDatasetNumber
+        task.dataset.array = this.dataset.array
+        // task.dataset.num = numberForDatasetNumber
+        task.dataset.num = item.id
         taskContainer.appendChild(task)
         task.classList.add('task')
         task.addEventListener('click', clickableTask)
         number++
-        numberForDatasetNumber++
     })
-    // below code is to avoid refreshing the number 
-    let isClicked = false
-    if (isClicked == this.id) { return }
-    isClicked = this.id
-    form.refreshNumber()
-    refreshNumberForDatasetNumber()
 }
 const btnAddTask = (() => {
     const projectCreateForm = document.getElementById('projectCreateForm')
@@ -57,7 +49,7 @@ export const showProjects = () => {
     storage.ParentArray.forEach(element => {
         const newDiv = document.createElement('div')
         newDiv.addEventListener('click', clickableProjects)
-        newDiv.id = number
+        newDiv.dataset.array = number
         newDiv.textContent = storage.arrayNames[number]
         display.appendChild(newDiv)
         newDiv.classList.add('projects')
@@ -68,7 +60,6 @@ export const showProjects = () => {
 showProjects()
 export const ProjectCreator = (() => {
     const arrayCreator = () => {
-        const id = storage.ParentArray.length
         const specificArray = []
         storage.ParentArray.push(specificArray)
     }

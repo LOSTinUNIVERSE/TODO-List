@@ -1,8 +1,6 @@
-/* eslint-disable prefer-destructuring */
 import './style.css'
 import './form.css'
-import { ProjectCreator, showProjects, clickableProjects } from './projects';
-
+import { ProjectCreator, showProjects } from './projects';
 
 function caller2() {
     const inputName = document.getElementById('projectName')
