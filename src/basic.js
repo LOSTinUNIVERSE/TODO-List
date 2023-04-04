@@ -29,6 +29,11 @@ export const form = (() => {
     const dateInput = document.getElementById('dateInput')
     const priorityInput = document.getElementById('priorityInput')
     let number = 0
+    function emptizeInputs() {
+        titleInput.value = ''
+        descriptionInput.value = ''
+        dateInput.value = ''
+    }
 
     const addTask = function (event) {
         if (taskToProject.positionOfArray == '') {
@@ -39,9 +44,9 @@ export const form = (() => {
         const newTask = FactoryDO(number, titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
         console.log(newTask);
-        event.preventDefault()
         number++
-
+        emptizeInputs()
+        event.preventDefault()
     }
     submitBtn.addEventListener('click', addTask, false)
     return { titleInput, descriptionInput }

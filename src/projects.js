@@ -26,19 +26,6 @@ export const clickableProjects = function () {
         number++
     })
 }
-const btnAddTask = (() => {
-    const projectCreateForm = document.getElementById('projectCreateForm')
-    const addTaskBtn = document.getElementById('btnAddTask')
-    let switcher = true
-    function showInput() {
-        if (switcher == true) {
-            projectCreateForm.style.display = 'none'
-            switcher = false
-        }
-        else { projectCreateForm.style.display = 'grid'; switcher = true }
-    }
-    addTaskBtn.addEventListener('click', showInput)
-})()
 
 export const showProjects = () => {
     let number = 0
