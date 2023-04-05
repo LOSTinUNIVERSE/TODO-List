@@ -27,8 +27,7 @@ if (!localStorage.getItem('storage.ParentArray') || !localStorage.getItem('stora
 
 function caller2() {
     storage.arrayNames.push(projectName.value)
-    const inputName = document.getElementById('projectName')
-    ProjectCreator.arrayCreator(inputName.value)
+    ProjectCreator.arrayCreator()
     populateStorage()
     showProjects()
 }

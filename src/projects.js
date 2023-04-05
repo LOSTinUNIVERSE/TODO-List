@@ -58,6 +58,8 @@ function deleteProject() {
     storage.arrayNames.splice(this.dataset.array, 1)
     localStorage.setItem('storage.ParentArray',
         JSON.stringify(storage.ParentArray))
+    localStorage.setItem('storage.arrayNames',
+        JSON.stringify(storage.arrayNames))
     showProjects()
 }
 
