@@ -5,8 +5,7 @@ export const storage = (() => {
 
     return { ParentArray, arrayNames }
 
-}
-)()
+})()
 export const taskToProject = (() => {
     const positionOfArray = ''
     const toArray = function (array, task) {
@@ -43,13 +42,13 @@ export const form = (() => {
         }
         const newTask = FactoryDO(number, titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
-        console.log(newTask);
+        localStorage.setItem('storage.ParentArray',
+            JSON.stringify(storage.ParentArray))
         number++
         emptizeInputs()
         event.preventDefault()
     }
+    // console.log('form', localStorage);
     submitBtn.addEventListener('click', addTask, false)
     return { titleInput, descriptionInput }
 })()
-
-

@@ -25,6 +25,7 @@ export const clickableProjects = function () {
         task.addEventListener('click', clickableTask)
         number++
     })
+
 }
 
 export const showProjects = () => {
@@ -33,6 +34,7 @@ export const showProjects = () => {
     display.replaceChildren()
     const projectName = document.getElementById('projectName')
     storage.arrayNames.push(projectName.value)
+    // console.log(storage.ParentArray);
     storage.ParentArray.forEach(element => {
         const newDiv = document.createElement('div')
         newDiv.addEventListener('click', clickableProjects)

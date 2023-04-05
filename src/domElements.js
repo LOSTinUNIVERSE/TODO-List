@@ -1,26 +1,23 @@
 import { storage } from './basic'
-// import { showProjects } from './projects'
-// import { btnAddTask } from './projects'
+
 
 let switcher = ''
-let isEditForm = ''
+// const isEditForm = ''
 
-// need to change it to function, to avoid confusion
 export const removeEditMenu = () => {
     switcher = 1
     const editMenu = document.getElementById('editMenu')
     editMenu.remove()
 }
-// this function is added from projects.js 
 const btnAddTask = (() => {
     const projectCreateForm = document.getElementById('projectCreateForm')
     const addTaskBtn = document.getElementById('btnAddTask')
     let switcher = true
     function showInput() {
         // here we tr
-        if (isEditForm == 0) {
-            return console.error('delete change');
-        }
+        // if (isEditForm == 0) {
+        //     return console.error('delete change');
+        // }
         if (switcher == true) {
             projectCreateForm.style.display = 'none'
             switcher = false
@@ -40,10 +37,12 @@ function removeDiv() {
     const test = document.querySelector(`[data-num='${this.dataset.num}']`)
     test.remove()
 
+    localStorage.setItem('storage.ParentArray',
+        JSON.stringify(storage.ParentArray))
+
     let neededArray = storage.ParentArray[this.dataset.array]
     neededArray = neededArray.filter((item) => item.id != this.dataset.num)
     storage.ParentArray[this.dataset.array] = neededArray
-    console.log('needed array after', neededArray);
     removeEditMenu()
 }
 const btnDeleteDiv = () => {
@@ -57,7 +56,6 @@ const btnDeleteDiv = () => {
     removeBtn.addEventListener('click', removeDiv)
 }
 
-// ! current workplace
 const editTask = (dataArray, dataNum) => {
     const editMenu = document.getElementById('editMenu')
     const editBtn = document.createElement('button')
@@ -80,7 +78,7 @@ const editTask = (dataArray, dataNum) => {
         saveChangesBtn.remove()
         projectCreateForm.style.display = 'none'
         switcher = 1
-        isEditForm = 1
+        // isEditForm = 1
 
     }
     const clearInputs = function () {
@@ -91,15 +89,18 @@ const editTask = (dataArray, dataNum) => {
     function changeItemsInfo() {
         let task = storage.ParentArray[this.dataset.array].filter(item => item.id == this.dataset.num);
         task = task[0]
-        isEditForm = 0
-        console.log('task before', task);
+        // isEditForm = 0
         task.title = titleInput.value
         task.description = descriptionInput.value
         task.priority = dateInput.value
         task.dueDate = priorityInput.value
-        console.log('task after', task);
+
+        localStorage.setItem('storage.ParentArray',
+            JSON.stringify(storage.ParentArray))
+
         clearInputs()
         discardChanges()
+
     }
     function openChangeForm() {
         removeEditMenu()
@@ -118,6 +119,7 @@ const editTask = (dataArray, dataNum) => {
         saveChangesBtn.textContent = 'save changes'
         cancelBtn.addEventListener('click', discardChanges)
         saveChangesBtn.addEventListener('click', changeItemsInfo)
+        saveChangesBtn.id = 'saveChangesBtn'
     }
     editMenu.appendChild(editBtn)
     editBtn.textContent = 'edit'
@@ -138,7 +140,6 @@ export const clickableTask = function () {
     task = task[0]
     editMenu.dataset.num = this.dataset.num
     editMenu.dataset.array = this.dataset.array
-    console.log('this', this);
 
     const editMenuInfo = () => {
         const editMenu = document.getElementById('editMenu')
@@ -163,7 +164,4 @@ export const clickableTask = function () {
     btnRemoveEDitMenu()
     btnDeleteDiv()
     editTask(this.dataset.array, this.dataset.num)
-
-    // return { switcher }
 }
-
