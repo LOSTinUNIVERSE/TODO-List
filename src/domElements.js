@@ -37,13 +37,13 @@ function removeDiv() {
     const test = document.querySelector(`[data-num='${this.dataset.num}']`)
     test.remove()
 
-    localStorage.setItem('storage.ParentArray',
-        JSON.stringify(storage.ParentArray))
 
     let neededArray = storage.ParentArray[this.dataset.array]
     neededArray = neededArray.filter((item) => item.id != this.dataset.num)
     storage.ParentArray[this.dataset.array] = neededArray
     removeEditMenu()
+    localStorage.setItem('storage.ParentArray',
+        JSON.stringify(storage.ParentArray))
 }
 const btnDeleteDiv = () => {
     const editMenu = document.getElementById('editMenu')

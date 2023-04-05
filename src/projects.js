@@ -28,25 +28,39 @@ export const clickableProjects = function () {
 
 }
 
+
 export const showProjects = () => {
     let number = 0
     const display = document.getElementById('displayOfProjects')
     display.replaceChildren()
-    const projectName = document.getElementById('projectName')
-    storage.arrayNames.push(projectName.value)
-    // console.log(storage.ParentArray);
     storage.ParentArray.forEach(element => {
         const newDiv = document.createElement('div')
+        const deleteProjectBtn = document.createElement('button')
+        const container = document.createElement('div')
+        container.id = ('projectContainer')
         newDiv.addEventListener('click', clickableProjects)
+        deleteProjectBtn.addEventListener('click', deleteProject)
         newDiv.dataset.array = number
+        deleteProjectBtn.dataset.array = number
+        console.log(storage.arrayNames);
         newDiv.textContent = storage.arrayNames[number]
-        display.appendChild(newDiv)
+        display.appendChild(container)
+        container.appendChild(newDiv)
+        container.appendChild(deleteProjectBtn)
+        // newDiv.appendChild(deleteProjectBtn)
         newDiv.classList.add('projects')
         number++
     })
-    projectName.value = ''
 }
 showProjects()
+function deleteProject() {
+    storage.ParentArray.splice(this.dataset.array, 1)
+    storage.arrayNames.splice(this.dataset.array, 1)
+    localStorage.setItem('storage.ParentArray',
+        JSON.stringify(storage.ParentArray))
+    showProjects()
+}
+
 export const ProjectCreator = (() => {
     const arrayCreator = () => {
         const specificArray = []

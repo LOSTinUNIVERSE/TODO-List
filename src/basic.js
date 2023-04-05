@@ -1,7 +1,7 @@
 
 export const storage = (() => {
     const ParentArray = [[]];
-    const arrayNames = []
+    const arrayNames = ['default array']
 
     return { ParentArray, arrayNames }
 

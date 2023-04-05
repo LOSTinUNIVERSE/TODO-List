@@ -54,6 +54,16 @@
   align-items: center;
   height: 100%;
 }
+.projects > button {
+  width: 50%;
+  height: 10px;
+}
+#projectContainer > button {
+  width: 50%;
+  height: 20px;
+  display: grid;
+  justify-self: center;
+}
 #footer {
   background-color: coral;
   grid-area: -2/2/-1/-1;
