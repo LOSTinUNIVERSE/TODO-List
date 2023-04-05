@@ -1,4 +1,4 @@
-import { storage } from './basic'
+import { storage, populateStorage, setStorage } from './basic'
 
 
 let switcher = ''
@@ -14,9 +14,6 @@ const btnAddTask = (() => {
     const addTaskBtn = document.getElementById('btnAddTask')
     let switcher = true
     function showInput() {
-        // here we tr
-        // if (isEditForm == 0) {
-        //     return console.error('delete change');
         // }
         if (switcher == true) {
             projectCreateForm.style.display = 'none'
@@ -42,8 +39,7 @@ function removeDiv() {
     neededArray = neededArray.filter((item) => item.id != this.dataset.num)
     storage.ParentArray[this.dataset.array] = neededArray
     removeEditMenu()
-    localStorage.setItem('storage.ParentArray',
-        JSON.stringify(storage.ParentArray))
+    populateStorage()
 }
 const btnDeleteDiv = () => {
     const editMenu = document.getElementById('editMenu')
@@ -86,6 +82,8 @@ const editTask = (dataArray, dataNum) => {
         descriptionInput.value = ''
         dateInput.value = ''
     }
+
+    // !currently here
     function changeItemsInfo() {
         let task = storage.ParentArray[this.dataset.array].filter(item => item.id == this.dataset.num);
         task = task[0]
@@ -94,9 +92,9 @@ const editTask = (dataArray, dataNum) => {
         task.description = descriptionInput.value
         task.priority = dateInput.value
         task.dueDate = priorityInput.value
+        document.querySelector(`[data-array='${this.dataset.array}']`).click()
 
-        localStorage.setItem('storage.ParentArray',
-            JSON.stringify(storage.ParentArray))
+        populateStorage()
 
         clearInputs()
         discardChanges()

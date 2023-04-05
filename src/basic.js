@@ -6,6 +6,18 @@ export const storage = (() => {
     return { ParentArray, arrayNames }
 
 })()
+export function setStorage() {
+    storage.ParentArray = JSON.parse(localStorage.getItem('storage.ParentArray'))
+    storage.arrayNames = JSON.parse(localStorage.getItem('storage.arrayNames'))
+}
+export function populateStorage() {
+    localStorage.setItem('storage.ParentArray',
+        JSON.stringify(storage.ParentArray))
+    localStorage.setItem('storage.arrayNames',
+        JSON.stringify(storage.arrayNames))
+    setStorage()
+}
+
 export const taskToProject = (() => {
     const positionOfArray = ''
     const toArray = function (array, task) {
@@ -34,6 +46,8 @@ export const form = (() => {
         dateInput.value = ''
     }
 
+    // !currently here
+
     const addTask = function (event) {
         if (taskToProject.positionOfArray == '') {
             console.log('wrong');
@@ -42,8 +56,7 @@ export const form = (() => {
         }
         const newTask = FactoryDO(number, titleInput.value, descriptionInput.value, dateInput.value, priorityInput.value)
         newTask.addToArray(taskToProject.positionOfArray)
-        localStorage.setItem('storage.ParentArray',
-            JSON.stringify(storage.ParentArray))
+        populateStorage()
         number++
         emptizeInputs()
         event.preventDefault()

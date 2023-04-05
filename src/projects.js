@@ -1,12 +1,13 @@
-import { taskToProject, storage } from './basic';
+import { taskToProject, storage, populateStorage, setStorage } from './basic';
 import { clickableTask } from './domElements';
 
 const taskContainer = document.createElement('div')
+const display = document.getElementById('displayOfProjects')
 taskContainer.id = 'taskContainer'
 const main = document.getElementById('main')
 main.appendChild(taskContainer)
 
-
+// !currently here
 export const clickableProjects = function () {
     let number = 0
     taskToProject.positionOfArray = this.dataset.array
@@ -31,7 +32,6 @@ export const clickableProjects = function () {
 
 export const showProjects = () => {
     let number = 0
-    const display = document.getElementById('displayOfProjects')
     display.replaceChildren()
     storage.ParentArray.forEach(element => {
         const newDiv = document.createElement('div')
@@ -53,13 +53,13 @@ export const showProjects = () => {
     })
 }
 showProjects()
+
 function deleteProject() {
+    storage.ParentArray[this.dataset.array] = []
+    taskContainer.replaceChildren()
     storage.ParentArray.splice(this.dataset.array, 1)
     storage.arrayNames.splice(this.dataset.array, 1)
-    localStorage.setItem('storage.ParentArray',
-        JSON.stringify(storage.ParentArray))
-    localStorage.setItem('storage.arrayNames',
-        JSON.stringify(storage.arrayNames))
+    populateStorage()
     showProjects()
 }
 
