@@ -40,6 +40,7 @@ export const showProjects = () => {
         deleteProjectBtn.addEventListener('click', deleteProject)
         newDiv.dataset.array = number
         deleteProjectBtn.dataset.array = number
+        deleteProjectBtn.textContent = 'delete'
         console.log(storage.arrayNames);
         newDiv.textContent = storage.arrayNames[number]
         display.appendChild(container)

@@ -57,6 +57,7 @@ export const form = (() => {
         populateStorage()
         number++
         emptizeInputs()
+        document.querySelector(`[data-array='${taskToProject.positionOfArray}']`).click()
         event.preventDefault()
     }
     submitBtn.addEventListener('click', addTask, false)

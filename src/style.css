@@ -8,16 +8,29 @@
   background-color: lightblue;
   display: grid;
   grid-template-columns: 2fr 5fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 0.5fr 10fr 0.5fr;
 }
 #sidebar {
-  background-color: lightcoral;
+  background-color: rgb(72, 25, 65);
   grid-area: 1/1/-1/2;
   display: grid;
   align-items: start;
+  height: 100%;
   justify-items: center;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
 }
+#sidebar button {
+  width: 50%;
+  border-radius: 20px;
+  height: 30px;
+  display: grid;
+  justify-self: center;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  font-size: 15px;
+}
+
 #header {
   background-color: lightpink;
   grid-area: 1/2/2/-1;
@@ -33,7 +46,7 @@
 }
 
 #displayOfProjects {
-  background-color: lightgreen;
+  /* background-color: rgb(4, 37, 4); */
   display: grid;
   /* grid-template-columns: repeat(4, 1fr); */
   grid-template-rows: repeat(4, 1fr);
@@ -42,48 +55,57 @@
   justify-self: center;
   align-self: center;
   /* position: absolute; */
-  gap: 12px;
-  overflow: scroll;
+  gap: 5%;
+  overflow-y: auto;
 }
 .projects {
   display: grid;
-  background-color: lightslategrey;
+  background-color: rgba(0, 0, 0, 0.425);
   border-radius: 20px;
   /* justify-content: center; */
   justify-items: center;
   align-items: center;
   height: 100%;
-}
-.projects > button {
-  width: 50%;
-  height: 10px;
-}
-#projectContainer > button {
-  width: 50%;
-  height: 20px;
-  display: grid;
+  width: 95%;
   justify-self: center;
+  color: white;
+  font-size: 18px;
+}
+.projects:active {
+  border: 3px solid white;
+}
+#projectContainer {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+#sidebar button:hover {
+  border-color: goldenrod 5px;
+  border: 2px;
+  color: rgb(255, 254, 255);
+  background-color: blueviolet;
 }
 #footer {
   background-color: coral;
   grid-area: -2/2/-1/-1;
 }
 #taskContainer {
-  height: 100%;
-  width: 100%;
+  background-color: rgb(12, 1, 7);
   display: grid;
-  align-self: center;
-  /* grid-template-columns: repeat(auto-fit, minmax(20px, 100px)); */
-  /* grid-template-rows: repeat(auto-fit, minmax(20px, 100px)); */
-  grid-template-rows: repeat(4, minmax(100px, 120px));
-  background-color: rgb(130, 55, 130);
-  gap: 20px;
+  /* grid-template-rows: repeat(, 1fr); */
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  overflow-y: scroll;
+  align-content: start;
 }
 .task {
-  height: 1fr;
-  width: 1fr;
-  background-color: black;
+  display: grid;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(92, 67, 85);
   color: white;
+  border-radius: 20px;
+  border: 3px solid rgb(255, 255, 255);
   justify-content: center;
   align-content: center;
 }
