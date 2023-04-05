@@ -5,14 +5,12 @@ import { storage, populateStorage, setStorage } from './basic'
 
 const projectName = document.getElementById('projectName')
 
-
 if (!localStorage.getItem('storage.ParentArray') || !localStorage.getItem('storage.ParentArray')) {
     populateStorage();
 } else {
     setStorage();
     showProjects()
 }
-
 
 function caller2() {
     storage.arrayNames.push(projectName.value)

@@ -7,7 +7,6 @@ taskContainer.id = 'taskContainer'
 const main = document.getElementById('main')
 main.appendChild(taskContainer)
 
-// !currently here
 export const clickableProjects = function () {
     let number = 0
     taskToProject.positionOfArray = this.dataset.array
@@ -29,7 +28,6 @@ export const clickableProjects = function () {
 
 }
 
-
 export const showProjects = () => {
     let number = 0
     display.replaceChildren()
@@ -47,7 +45,6 @@ export const showProjects = () => {
         display.appendChild(container)
         container.appendChild(newDiv)
         container.appendChild(deleteProjectBtn)
-        // newDiv.appendChild(deleteProjectBtn)
         newDiv.classList.add('projects')
         number++
     })

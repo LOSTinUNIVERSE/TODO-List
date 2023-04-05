@@ -46,8 +46,6 @@ export const form = (() => {
         dateInput.value = ''
     }
 
-    // !currently here
-
     const addTask = function (event) {
         if (taskToProject.positionOfArray == '') {
             console.log('wrong');
@@ -61,7 +59,6 @@ export const form = (() => {
         emptizeInputs()
         event.preventDefault()
     }
-    // console.log('form', localStorage);
     submitBtn.addEventListener('click', addTask, false)
     return { titleInput, descriptionInput }
 })()

@@ -66,7 +66,6 @@ const editTask = (dataArray, dataNum) => {
     const dateInput = document.getElementById('dateInput')
     const priorityInput = document.getElementById('priorityInput')
 
-
     function discardChanges() {
         container1.style.display = 'grid'
         submitBtn.style.display = 'grid'
@@ -83,7 +82,6 @@ const editTask = (dataArray, dataNum) => {
         dateInput.value = ''
     }
 
-    // !currently here
     function changeItemsInfo() {
         let task = storage.ParentArray[this.dataset.array].filter(item => item.id == this.dataset.num);
         task = task[0]
