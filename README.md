@@ -1,6 +1,5 @@
-# template
+# To-Do List Application
 
-To-Do List Application
 This is a simple to-do list application created using JavaScript, HTML, and CSS. The application also utilizes the webpack module bundler and web storage technologies to store project and task data in the browser.
 
 Features
