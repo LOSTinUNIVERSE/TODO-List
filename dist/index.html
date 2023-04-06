@@ -23,7 +23,7 @@
               placeholder="project's name"
               value="default project"
             />
-            <button id="btnNameProject">Create Object</button>
+            <button id="btnNameProject">add new project</button>
           </div>
           <form action="" id="form">
             <input type="text" id="title" placeholder="Your title" required />
@@ -35,15 +35,15 @@
             />
             <input type="date" id="dateInput" />
             <div id="selectionDiv">
-              <label for="cars">priority</label>
-              <select name="cars" id="priorityInput">
+              <label for="priority">priority</label>
+              <select name="priority" id="priorityInput">
                 <option value="high">high</option>
                 <option value="medium">medium</option>
                 <option value="low">low</option>
                 <option value="low" selected>-</option>
               </select>
             </div>
-            <button type="submit" id="submit">+</button>
+            <button type="submit" form="form" id="submit">+</button>
           </form>
         </div>
       </main>
