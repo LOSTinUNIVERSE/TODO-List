@@ -8,7 +8,7 @@
   background-color: lightblue;
   display: grid;
   grid-template-columns: 2fr 5fr;
-  grid-template-rows: 0.5fr 10fr 0.5fr;
+  grid-template-rows: 0.5fr 10fr 1fr;
 }
 #sidebar {
   background-color: rgb(72, 25, 65);
@@ -32,7 +32,7 @@
 }
 
 #header {
-  background-color: lightpink;
+  background-color: rgb(12, 1, 7);
   grid-area: 1/2/2/-1;
 }
 #main {
@@ -78,15 +78,25 @@
   display: grid;
   grid-template-rows: 3fr 1fr;
 }
-#sidebar button:hover {
-  border-color: goldenrod 5px;
-  border: 2px;
+#projectName {
+  align-self: center;
+}
+button:hover {
+  border: 2px solid rgb(242, 190, 237);
   color: rgb(255, 254, 255);
-  background-color: blueviolet;
+  background-color: rgb(106, 1, 151);
 }
 #footer {
-  background-color: coral;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(159, 6, 176);
   grid-area: -2/2/-1/-1;
+}
+a {
+  font-style: none;
+  color: white;
+  text-decoration: none;
 }
 #taskContainer {
   background-color: rgb(12, 1, 7);
@@ -107,5 +117,5 @@
   border-radius: 20px;
   border: 3px solid rgb(255, 255, 255);
   justify-content: center;
-  align-content: center;
+  align-content: space-evenly;
 }

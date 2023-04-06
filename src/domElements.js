@@ -28,6 +28,7 @@ const btnRemoveEDitMenu = () => {
     const cancel = document.createElement('button')
     editMenu.appendChild(cancel)
     cancel.addEventListener('click', removeEditMenu)
+    cancel.textContent = 'cancel'
 }
 
 function removeDiv() {
@@ -88,8 +89,8 @@ const editTask = (dataArray, dataNum) => {
         // isEditForm = 0
         task.title = titleInput.value
         task.description = descriptionInput.value
-        task.priority = dateInput.value
-        task.dueDate = priorityInput.value
+        task.priority = priorityInput.value
+        task.dueDate = dateInput.value
         document.querySelector(`[data-array='${this.dataset.array}']`).click()
 
         populateStorage()
@@ -140,6 +141,7 @@ export const clickableTask = function () {
     const editMenuInfo = () => {
         const editMenu = document.getElementById('editMenu')
         const infoSection = document.createElement('div')
+        infoSection.id = 'infoSection'
         editMenu.appendChild(infoSection)
         const titleOfTask = document.createElement('h3')
         const description = document.createElement('p')
@@ -151,10 +153,12 @@ export const clickableTask = function () {
         infoSection.appendChild(priority)
         infoSection.appendChild(dueDate)
 
-        titleOfTask.textContent = task.title
-        description.textContent = task.description
-        priority.textContent = task.priority
-        dueDate.textContent = task.dueDate
+        titleOfTask.textContent = `Title: ${task.title}`
+        description.textContent = `Description: ${task.description}`
+        priority.textContent = `priority: ${task.priority}`
+        dueDate.textContent = `Due date: ${task.dueDate}`
+        console.log(`priority: ${task.priority}`);
+        console.log(task);
     }
     editMenuInfo()
     btnRemoveEDitMenu()

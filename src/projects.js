@@ -14,8 +14,11 @@ export const clickableProjects = function () {
     storage.ParentArray[this.dataset.array].forEach(item => {
         const task = document.createElement('div')
         const nameDiv = document.createElement('h3')
-        nameDiv.textContent = item.title
+        const dueDate = document.createElement('p')
+        nameDiv.textContent = `Task: ${item.title}`
+        dueDate.textContent = `Due: ${item.dueDate}`
         task.appendChild(nameDiv)
+        task.appendChild(dueDate)
         task.id = number
         task.dataset.array = this.dataset.array
         // task.dataset.num = numberForDatasetNumber
